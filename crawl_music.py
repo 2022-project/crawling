@@ -38,9 +38,7 @@ def next_page(next_url):
     driver2.implicitly_wait(200)
 
     element = driver2.find_element_by_class_name('hero-cover')
-
     img = element.find_element_by_tag_name('img').get_attribute('src')
-    print(img)
 
     driver2.close()
     return img
