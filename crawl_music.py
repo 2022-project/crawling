@@ -34,8 +34,6 @@ singer_list = []
 img_list = []
 
 # 세부 페이지 이동 후 이미지 주소 추출하는 함수
-
-
 def next_page(next_url):
     driver2 = webdriver.Chrome('chromedriver', options=options)
     driver2.get(url=next_url)
