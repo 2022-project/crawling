@@ -8,7 +8,6 @@ import pandas as pd
 # =>  https://www.jamendo.com/explore/playlists
 # 60개 크롤링할 때 한 10~15분
 
-
 # 1. 크롬 드라이버 버전에 맞게 다운받아 같은 폴더에 준비
 options = webdriver.ChromeOptions()
 options.add_argument('window-size=1920,1080')
@@ -18,7 +17,6 @@ driver.implicitly_wait(1000)
 
 # 2. 키워드에 맞게 검색
 base_url = 'https://www.jamendo.com/playlist'
-
 
 # ** 플레이리스트에 따라 이 부분 변경해줘야함 **
 emotion_url = '/500605176/chill-zone'  # 1) 검색할 플레이리스트 url 뒷부분
@@ -54,12 +52,10 @@ elements = driver.find_elements_by_xpath(
 
 for element in elements:
     title = element.find_element_by_class_name("track_information_title").text
-    singer = element.find_element_by_class_name(
-        "track_information_artist").text
+    singer = element.find_element_by_class_name("track_information_artist").text
 
     # 이미지url은 세부 페이지로 이동 후 추출
-    next_url = element.find_element_by_tag_name(
-        'a').get_attribute('href')
+    next_url = element.find_element_by_tag_name('a').get_attribute('href')
     img = next_page(next_url)
 
     title_list.append(title)
